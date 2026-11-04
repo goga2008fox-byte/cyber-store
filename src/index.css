@@ -1,57 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
 
 :root {
-  --bg-main: #050609;
-  --bg-card: #0A0D14;
-  --bg-glass: rgba(10, 13, 20, 0.75);
-  --accent-cyan: #65D5FF;
-  --accent-blue: #176BFF;
-  --text-main: #FFFFFF;
-  --text-muted: #7E8B9B;
-  --border-light: rgba(255, 255, 255, 0.08);
-  --border-active: rgba(101, 213, 255, 0.4);
+  --bg-dark: #050505;
+  --bg-card: rgba(18, 15, 18, 0.65);
+  --accent-crimson: #E63946;
+  --accent-glow: rgba(230, 57, 70, 0.4);
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --text-main: #F8F9FA;
+  --text-muted: #8E8D8A;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 body {
-  background-color: var(--bg-main);
+  background-color: var(--bg-dark);
   color: var(--text-main);
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-.glass-header {
-  background: var(--bg-glass);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-light);
+/* Секции с прилипанием при скролле */
+.scroll-section {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  position: relative;
 }
 
+/* Премиальные стеклянные карточки */
 .glass-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-light);
-  transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glass);
+  border-radius: 28px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px var(--accent-glow);
 }
 
-.glass-card:hover {
-  border-color: var(--border-active);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(23, 107, 255, 0.12);
+.title-cinzel {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 2px;
 }
 
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-main);
-}
-::-webkit-scrollbar-thumb {
-  background: #1A2133;
-  border-radius: 3px;
+/* 3D-картинки через CDN Fluently 3D */
+.emoji-3d {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 25px rgba(230, 57, 70, 0.4));
+  user-select: none;
 }
